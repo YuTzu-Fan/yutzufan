@@ -1,0 +1,365 @@
+//顏色定義
+$color_blue: #272343
+$color_green: #98CCD3
+$color_white: #EBF0F6
+$color_red: #C2110E
+//----------------------------
+*
+  font-family: 'Oswald' , '微軟正黑體'
+  
+//debug----------------------------
+// *
+//   border: solid 1px !important
+// header,section
+//   display: none
+// footer
+//   display: block
+  
+//----------------------------
+@mixin ab_center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  
+@mixin size($w,$h)
+  width: $w
+  height: $h
+  
+//----------------------------
+html,body
+  overflow-x: hidden
+  font-size: 16px
+  
+header
+  position: relative
+  background-color: $color_green
+  text-align: center
+  .row
+  
+  .s700
+    display: none
+    @media screen and (max-width:700px)
+      display: inline-block
+    
+  .back
+    transform: translate(50%,0%)
+    transition: 0.1s
+    @media screen and (max-width:700px)
+      display: none
+  .front
+    transform: translate(0%,0%)
+    transition: 0.1s
+    @media screen and (max-width:700px)
+      display: none
+  
+  .icon
+    width: 80%
+    max-width: 250px
+    padding: 250px 0px
+  .marginbottom
+    position: absolute
+    width: 95%
+    bottom: 0px
+    right: 0px
+    animation: upin 2s
+    
+  @keyframes upin
+    0%
+      bottom: -100px
+    100%
+      bottom: 0px
+  
+  .explore
+    +ab_center
+    font-size: 16px
+    top: 95%
+    color: $color_white
+    opacity: 0
+    &:after
+      display: block
+      content: "V"
+      transform: scaleX(1.2) scale(0.5)
+      transition: 0.5s
+    &.at_top
+      opacity: 1
+      
+//導覽列
+nav.navbar
+  transition: 0.5s
+  a
+    transition: 0.5s
+//--導覽列在上方時透明
+nav.navbar.at_top
+  background-color: transparent
+  a, a:visited
+    color: $color_white
+//---------------------  
+section
+  padding: 60px 0px
+  position: relative
+  
+//About-------------
+section#section_about
+  background-color: $color_blue
+  .white
+    .marginbottom
+      position: absolute
+      width: 100%
+      bottom: 0px
+      animation: upin 2s
+      z-index: 5
+  
+  .container
+    margin-bottom: 3%
+    transform: rotate(15deg) scale(0.9)
+    @media screen and (max-width:800px)
+      transform:  scale(0.9)translate(20%,0%)
+  
+  .row
+    height: 150px
+    margin-bottom: 60px
+    color: $color_white
+    
+    .r1text
+      font-size: 34px
+      transition: 0.1s
+      @media screen and (max-width:800px)
+        font-size: 25px
+        text-align: right
+        right: -80%
+        
+    .r2text
+      font-size: 22px
+      transition: 0.2s
+      @media screen and (max-width:800px)
+        font-size: 20px
+        text-align: right
+    .r3text
+      font-size: 30px
+      text-align: right
+      transition: 0.3s
+      @media screen and (max-width:800px)
+        font-size: 20px
+  .bear
+    width: 30%
+    max-width: 300px
+    position: absolute
+    bottom: -5px
+
+  #bear
+    width: 30%
+    max-width: 300px
+    position: absolute
+    right: 8%
+    bottom: 0px
+    transform: translateX(-50%)
+    @media screen and (max-width:800px)
+      right: 1%
+
+  #fish
+    width: 100px
+    position: absolute
+    transform: translate(-50%,-50%)
+    
+      
+     
+    
+  .tri1
+    width: 350px
+    transition: 0.1s
+  .tri2
+    width: 20px
+    margin-left: 20px
+    transition: 0.3s
+  .tri3
+    width: 50px
+    margin-left: -30%
+    transition: 0.4s
+  .tri4
+    width: 25px
+    margin-left: 50%
+    transition: 0.2s
+    
+  
+    
+//section_skills-------------
+section#section_skills
+  background-color: $color_white
+  
+  .container
+    .row
+      .col-sm-12
+        color: $color_red
+        margin: 50px 0px 50px 0px
+      .col-sm-6
+        color: $color_blue
+        text-align: center
+        .row
+          h3
+            margin: 5px 0px
+            width: 90%
+          img
+            width: 90%
+          p
+            margin: 5px 0px
+            width: 95%
+            
+//section_works-------------
+section#section_works
+  background-color: $color_white
+  .marginbottom
+    position: absolute
+    width: 120%
+    bottom: 0%
+    left: -5%
+    animation: upin 2s
+    z-index: 5
+    transition: 0.2s
+    @media screen and (max-width:600px)
+      left: -12%
+  .container
+    margin-bottom: 8%
+    .row
+      margin: 50px 0px 100px 0px
+      .col-sm-12
+        h1
+          color: $color_red
+    
+      .col-sm-4
+        overflow: hidden
+        margin-top: 50px
+        
+  
+    .work
+      height: 200px
+      position: relative
+      padding: 10px 
+      &:hover
+        &:before,.image
+          opacity: 0.2
+          transition: 0.5s
+
+      @media screen and (max-width:700px)
+        height: 460px
+
+      .texts
+        +ab_center
+        z-index: 5
+        opacity: 0
+        color: $color_blue
+        transition: 0.5s
+        font-family: 100px
+        font-weight: blod
+
+
+      .title
+        line-height: 30px
+        font-weight: 900
+
+
+      &:hover
+        &:before,.texts
+          opacity: 1
+
+    .work img
+      height: 100%
+      +ab_center
+      @media screen and (max-width:700px)
+        height: auto
+        width: 110%
+    
+
+//section_contact-------------
+section#section_contact
+  background-color: $color_green
+  color: $color_blue
+  overflow: hidden
+  .container
+    margin-top: 8%
+  .bear
+    width: 150px
+    position: absolute
+    transition: 0.3s
+    bottom: 0%
+    
+      
+  #bear_blue
+    right: 300px
+    z-index: 3
+    @media screen and (max-width:600px)
+      right: 60%
+  #bear_white
+    right: 200px
+    @media screen and (max-width:600px)
+      right: 35%
+  #bear_gray
+    right: 100px
+    @media screen and (max-width:600px)
+      right: 10%
+  
+  .margintop
+    position: absolute
+    width: 120%
+    top: 0%
+    left: -5%
+    animation: upin 5s
+    z-index: 5
+    transition: 0.2s
+    @media screen and (max-width:600px)
+      left: -12%
+  
+  .marginbottom
+    position: absolute
+    width: 120%
+    bottom: -8%
+    left: -5%
+    z-index: 5
+    @media screen and (max-width:1240px)
+      bottom: 0%
+      
+    
+  .col-sm-6
+    margin: 100px 0px 0px 0px
+  
+  .bottle
+    height: 300px
+    .bottleback
+      +ab_center
+      top: 70%
+      transform: scale(2)translate(-25%,-50%)
+      @media screen and (max-width:767px)
+        transform: scale(1.5)translate(-40%,-50%)
+      img
+        width: 100%
+    .bottletext
+      background-color: transparent
+      color: $color_blue
+      padding: 15%
+      padding-left: 25%
+      position: absolute
+      transform: scale(1.2)translate(0%,-10%)
+      @media screen and (max-width:1000px)
+        transform: scale(0.9)translate(0%,0%)
+      @media screen and (max-width:767px)
+        transform: scale(1.5)
+      @media screen and (max-width:620px)
+        transform: scale(1)translate(-5%,15%)
+      
+      
+      
+// -----------------
+footer#footer
+  background-color: $color_blue
+  text-align: center
+  .container
+    h4
+      color: $color_white
+  
+            
+          
+            
+            
+
+    
+    
